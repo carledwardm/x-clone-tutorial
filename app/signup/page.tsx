@@ -4,6 +4,9 @@ import styles from './Signup.module.scss';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
+import { auth, db } from '@/lib/firebaseConfig';
+import { doc, setDoc } from 'firebase/firestore';
 
 export const SignUpPage = () => {
     const [fullName, setFullName] = useState('');
@@ -14,8 +17,59 @@ export const SignUpPage = () => {
     const [success, setSuccess] = useState<string>('');
     const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
     const router = useRouter();
-    const handleSignUp = () => {
 
+    const validateForm = ():boolean => {
+        if (!email || !password || !fullName || !userName) {
+            setError('All fields are required')
+        }
+        if (password.length < 6) {
+            setError("Password must be at least 6 characters long");
+        }
+        setError("");
+        return true;
+    }
+
+    const handleSignUp = async (event: React.FormEvent) => {
+        event.preventDefault();
+        if (!validateForm()) return;
+
+        setIsSubmitting(true);
+
+        try {
+            const userCredential = await createUserWithEmailAndPassword(
+                auth,
+                email,
+                password,
+            )
+            const user = userCredential.user;
+
+            //  Update user's display name
+            await updateProfile(user, {
+                displayName: fullName,
+            });
+
+            // Save the username and additional info in Firestore
+            await setDoc(doc(db, "users", user.uid), {
+                fullName,
+                userName,
+                email: user.email,
+                createdAt: new Date(),
+            });
+
+            setSuccess("Account created successfully! Redirecting...")
+            setTimeout(() => {
+                router.push("/");
+            }, 2000); // Redirect after 2 seconds
+        } catch (error: any) {
+            if (error.code === "auth/email-already-in-use") {
+                setError("An account with this email already exists.")
+            } else {
+                setError("Failed to create an account. Please try again");
+            }
+            console.error(error);
+        } finally {
+            setIsSubmitting(false)
+        }
     }
 
     return(
