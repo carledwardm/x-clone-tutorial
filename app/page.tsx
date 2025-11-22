@@ -1,11 +1,13 @@
 import styles from "./page.module.scss";
-import SignUpPage from "./signup/page";
+import Link from 'next/link';
 
 export default function Home() {
   return (
     <div className={styles.page}>
       <main className={styles.main}>
-        <SignUpPage />
+        <h1>Home Page</h1>
+        <Link href='/signup'>Sign Up</Link>
+        <Link href='/login'>Log In</Link>
       </main>
     </div>
   );
