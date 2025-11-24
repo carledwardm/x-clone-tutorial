@@ -5,6 +5,8 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '@/lib/firebaseConfig';
+import Link from 'next/link';
+import Toast from '../components/Toast';
 
 export const LoginPage = () => {
     const [email, setEmail] = useState<string>("");
@@ -47,10 +49,15 @@ export const LoginPage = () => {
                 className={styles.button}
                 disabled={!email || !password}>Next</button>
             </form>
+            <Link href="#forgotPassword">Forgot password?</Link>
+            <div className={styles.signupLink}>Don't have an account? <Link href="/signup">Sign up</Link></div>
+            {showToast && (
+                <Toast message="Successfully signed in"
+                onClose={() => setShowToast(false)} />
+            )}
         </div>
     )
-}
+};
 
 export default LoginPage;
 
-// 52.36
