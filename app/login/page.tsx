@@ -23,7 +23,7 @@ export const LoginPage = () => {
             setShowToast(true);
             router.push("/");
         } catch (error) {
-            setError("Failed to login. Pleadse check your email and password.");
+            setError("Failed to login. Please check your email and password.");
         }
     }
 
@@ -41,7 +41,7 @@ export const LoginPage = () => {
                 value={email} 
                 onChange={(event) => setEmail(event.target.value)} 
                 className={styles.input}></input>
-                <input type="passwprd" 
+                <input type="password" 
                 placeholder="Password" 
                 value={password} 
                 onChange={(event) => setPassword(event.target.value)} 
@@ -50,7 +50,7 @@ export const LoginPage = () => {
                 className={styles.button}
                 disabled={!email || !password}>Next</button>
             </form>
-            <Link href="#forgotPassword">Forgot password?</Link>
+            <Link href="#forgotPassword" className={styles.forgotPassword}>Forgot password?</Link>
             <div className={styles.signupLink}>Don't have an account? <Link href="/signup">Sign up</Link></div>
             {showToast && (
                 <Toast message="Successfully signed in"
