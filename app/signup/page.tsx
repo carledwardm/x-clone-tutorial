@@ -58,7 +58,7 @@ export const SignUpPage = () => {
 
             setSuccess("Account created successfully! Redirecting...")
             setTimeout(() => {
-                router.push("/");
+                router.push("/login");
             }, 2000); // Redirect after 2 seconds
         } catch (error: any) {
             if (error.code === "auth/email-already-in-use") {
