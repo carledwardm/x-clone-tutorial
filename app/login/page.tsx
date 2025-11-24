@@ -30,6 +30,7 @@ export const LoginPage = () => {
     return (
         <div className={styles.container}>
             <div className={styles.loginBox}>
+            <div className={styles.loginBox}>
                 <PiXLogoBold className={`${styles.icon} ${styles.logo}`}></PiXLogoBold>
             </div>
             <h1 className={styles.header}>Sign in to X</h1>
@@ -55,6 +56,7 @@ export const LoginPage = () => {
                 <Toast message="Successfully signed in"
                 onClose={() => setShowToast(false)} />
             )}
+            </div>
         </div>
     )
 };
