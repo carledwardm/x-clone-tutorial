@@ -5,7 +5,6 @@ import Link from 'next/link';
 const RightSidebar = () => {
     return (
         <div className={styles.rightSidebar}>
-            <h1>Right Sidebar</h1>
             <div className={styles.searchBar}>
                 <FaSearch className={styles.searchIcon} />
                 <input 
@@ -23,17 +22,21 @@ const RightSidebar = () => {
                 </div>
             </div>
             <div className={styles.trending}>
-                <h2>Explore <span> className={styles.betaTag}</span>Beta</h2>
+                <h2>Explore <span className={styles.betaTag}>Beta</span></h2>
                 <ul className={styles.trendingList}>
                     <li>
                         <div className={styles.trendInfo}>
                             <span>CSS · 1 hour ago</span>
                             <h3>Developer spend 4 hours centering a div, finally gives up</h3>
                         </div>
+                    </li>
+                    <li>
                         <div className={styles.trendInfo}>
                             <span>CSS · 3 hours ago</span>
                             <h3>Flexbox vs. Grid: The ultimate showdown</h3>
                         </div>
+                    </li>
+                    <li>
                         <div className={styles.trendInfo}>
                             <span>Web Development · 4 hours ago</span>
                             <h3>Inline Styles: the controversial method splitting the community</h3>
@@ -84,11 +87,11 @@ const RightSidebar = () => {
                 </ul>
                 <Link className={styles.showMore} href="#showMore">Show more</Link>
             </div>
-            <div className={styles.footer}>
+            <div className={styles.footerLinks}>
                 <Link href="#TermsOfService">Terms of Service</Link> · <Link href="#PrivacyPolicy">Privacy Policy</Link> 
-                <p>© 2024 X Corp.</p>
                 <Link href="#CookiePolicy">Cookie Policy</Link> · <Link href="#Accessibility">Accessibility</Link>
                 <Link href="#AdsInfo">Ads info</Link> · <Link href="#More">More...</Link>
+                <p>© 2024 X Corp.</p>
             </div>
         </div>
     )
