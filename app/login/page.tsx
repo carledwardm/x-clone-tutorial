@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '@/lib/firebaseConfig';
 import Link from 'next/link';
-import Toast from '../components/Toast';
+import Toast from '@/components/Toast';
 
 export const LoginPage = () => {
     const [email, setEmail] = useState<string>("");
