@@ -13,5 +13,4 @@ export default function Home() {
   );
 }
 
-// Resume at 46:30 
 
