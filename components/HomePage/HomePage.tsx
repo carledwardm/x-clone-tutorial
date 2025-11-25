@@ -1,13 +1,13 @@
 'use client';
+import LeftSidebar from '../LeftSidebar';
 import RightSidebar from '../RightSidebar';
 import styles from './HomePage.module.scss';
 
 const HomePage = () => {
     return (
         <div className={styles.container}>
-            {/* Sidebar */}
+            <LeftSidebar avatarUrl={'https://randomuser.me/api/portraits/men/9.jpg'}/>
             {/* MainContent */}
-            {/* RightSidebar */}
             <RightSidebar />
         </div>
     );
