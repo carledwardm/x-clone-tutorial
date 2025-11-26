@@ -100,7 +100,7 @@ const LeftSidebar = ({ avatarUrl }: LeftSidebarProps) => {
 
             {
                 user ? (
-                    <div className={styles.minProfile} onClick={toggleMenu}>
+                    <div className={styles.miniProfile} onClick={toggleMenu}>
                          <img src={avatarUrl} alt="User" className={styles.avatar} />
                          <div className={styles.profileDetails}>
                             <span className={styles.name}>
