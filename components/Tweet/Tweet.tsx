@@ -2,6 +2,9 @@ import { useState } from 'react';
 import styles from './Tweet.module.scss';
 import { deleteDoc, doc, updateDoc } from 'firebase/firestore';
 import { db } from '@/lib/firebaseConfig';
+import { PiSealCheckFill } from 'react-icons/pi';
+import { FiMoreHorizontal } from 'react-icons/fi';
+import { FaChartBar, FaHeart, FaRegComment, FaRegHeart, FaRetweet, FaShare } from 'react-icons/fa';
 
 interface TweetProps {
     tweetId: string;
@@ -91,7 +94,64 @@ const Tweet = ({
     };
 
     return (
-        <h1>Tweet</h1>
+        <div className={styles.tweet}>
+            <img src={avatarUrl} alt={`${name}'s avatar`} className={styles.avatar} />
+            <div className={styles.tweetContent}>
+                <div className={styles.handle}>
+                    <span className={styles.name}>{name}</span>
+                    <span className={styles.handle}>
+                        @{handle} <PiSealCheckFill className={styles.vartifiedIcon}/>
+                    </span>
+                    <span className={styles.time}> · {time}</span>
+                    <FiMoreHorizontal className={styles.moreIcon} onClick={handleMenuToggle} />
+                    {showMenu && (
+                        <div className={styles.menu}>
+                            <div onClick={handleDelete} className={styles.menuItem}>
+                                Delete
+                            </div>
+                            <div className={styles.menuItem}>Unpin from profile</div>
+                            <div className={styles.menuItem}>Add/remove from highlights</div>
+                            <div className={styles.menuItem}>Add/remove @{handle} from Lists</div>
+                            <div className={styles.menuItem}>Change who can reply</div>
+                            <div className={styles.menuItem}>View post engagements</div>
+                            <div className={styles.menuItem}>Embed post</div>
+                            <div className={styles.menuItem}>View post analytics</div>
+                            <div className={styles.menuItem}>Request community note</div>
+                        </div>
+                    )}
+                </div>
+                <div className={styles.body}>
+                    <p>{content}</p>
+                </div>
+                <div className={styles.actions}>
+                    <div className={styles.action} onClick={handleComment}>
+                        <FaRegComment className={styles.icon} />
+                        <span>{commentCount}</span>
+                    </div>
+                    <div className={styles.action} onClick={handleRetweet}>
+                        <FaRetweet className={styles.icon} />
+                        <span>{retweetCount}</span>
+                    </div>
+                    <div className={styles.action} onClick={handleLike}>
+                        {isLiked? (
+                            <FaHeart className={`${styles.icon} ${styles.liked}`}/>
+                        ) : (
+                            <FaRegHeart className={styles.icon} />
+                        )}
+                        <span>{likeCount}</span>
+                    </div>
+                    <div className={styles.action}>
+                        <FaChartBar className={styles.icon} />
+                        <span>
+                            {Math.floor(Math.random() * 5000000 + 1000).toLocaleString()}
+                        </span>{" "}
+                    </div>
+                    <div className={styles.action}>
+                        <FaShare className={styles.icon} />
+                    </div>
+                </div>
+            </div>
+        </div>
     )
 }
 
