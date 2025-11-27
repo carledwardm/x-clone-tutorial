@@ -1,3 +1,4 @@
+'use client';
 import { useEffect, useState } from 'react';
 import styles from './MainContent.module.scss';
 import { useAuth } from '@/app/context/AuthContext';
@@ -33,7 +34,7 @@ const MainContent = () => {
                     return {
                         id: doc.id,
                         ...data,
-                        time: data.toLocaleDateString("en=US", {
+                        time: date.toLocaleDateString("en-US", {
                         year:"numeric",
                         month: "long",
                         day: "numeric",
@@ -118,7 +119,7 @@ const MainContent = () => {
                     <button 
                         key={menu}
                         className={`${styles.menuItem} ${activeMenu === menu ? styles.active: ""}`}
-                        onClick={() => handleMenuClick(menu)}></button>
+                        onClick={() => handleMenuClick(menu)}>{menu}</button>
                 ))}
             </div>
             <form onSubmit={handleSubmit} className={styles.tweetInput}>

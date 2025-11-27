@@ -1,3 +1,4 @@
+'use client';
 import { useState } from 'react';
 import styles from './Tweet.module.scss';
 import { deleteDoc, doc, updateDoc } from 'firebase/firestore';
@@ -30,16 +31,16 @@ const Tweet = ({
     retweets, 
     likes,
     onDelete}: TweetProps) => {
-    const [commentCount, setCommentCount] = useState(comments);
-    const [retweetCount, setRetweetCount] = useState(retweets);
-    const [likeCount, setLikeCount] = useState(likes);
+    const [commentCount, setCommentCount] = useState(comments || 0);
+    const [retweetCount, setRetweetCount] = useState(retweets || 0);
+    const [likeCount, setLikeCount] = useState(likes || 0);
     const [isLiked, setIsLiked] = useState(false);
     const [showMenu, setShowMenu] = useState(false);
 
     const handleMenuToggle = () => setShowMenu(!showMenu);
 
     const handleLike = async () => {
-        const newLikeCount = isLiked ? likeCount - 1 : likeCount + 1;
+        const newLikeCount = likeCount + 1;
         setIsLiked(!isLiked);
         setLikeCount(newLikeCount);
 
@@ -97,7 +98,7 @@ const Tweet = ({
         <div className={styles.tweet}>
             <img src={avatarUrl} alt={`${name}'s avatar`} className={styles.avatar} />
             <div className={styles.tweetContent}>
-                <div className={styles.handle}>
+                <div className={styles.header}>
                     <span className={styles.name}>{name}</span>
                     <span className={styles.handle}>
                         @{handle} <PiSealCheckFill className={styles.vartifiedIcon}/>
