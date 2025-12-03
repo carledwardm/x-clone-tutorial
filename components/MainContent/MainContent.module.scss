@@ -72,9 +72,9 @@
 }
 
 .postButton {
-    background-color: #1da1f2;
+    background-color: white;
     border: none;
-    color: white;
+    color: #000;
     padding: 8px 18px;
     border-radius: 20px;
     cursor: pointer;
@@ -83,13 +83,14 @@
     text-align: center;
     margin-left: bold;
     width: 100%;
+    transition: opacity 0.2s ease-in-out;
 
     @media (min-width: 500px) {
         width: auto;
     }
     
     &:hover {
-        background-color: #1991da;
+       opacity: 0.8;
     }
 
     &:disabled {
