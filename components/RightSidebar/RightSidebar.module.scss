@@ -171,13 +171,18 @@
 }
 
 .followButton {
-    background-color: #1da1f2;
-    color: white;
+    background-color: white;
+    color: #000;
     padding: 8px 16px;
     border-radius: 20px;
     font-weight: bold;
     border: none;
     cursor: pointer;
+    transition: opacity 0.2s ease-in-out;
+
+    &:hover {
+        opacity: 0.8;
+    }
 }
 
 .footerLinks {
