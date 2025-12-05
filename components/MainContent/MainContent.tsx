@@ -130,7 +130,7 @@ const MainContent = () => {
                         <FaUserCircle className={styles.profileIcon} />
                     )}
                     <textarea 
-                        placeholder="What is happening?!"
+                        placeholder="What's happening?"
                         value={newTweet}
                         onChange={(event) => setNewTweet(event.target.value)}
                         className={styles.input}
