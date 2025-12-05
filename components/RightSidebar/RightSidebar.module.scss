@@ -24,7 +24,7 @@
     top: 50%;
     left: 12px;
     transform: translateY(-50%);
-    color: #b0b3b8;
+    color: #71767B;
     font-size: 14px;
 }
 
@@ -32,15 +32,15 @@
     width: 100%;
     padding: 12px 12px 12px 32px; /* Adjusted padding for icon */
     border-radius: 20px;
-    background-color: #242526;
-    border: none;
+    background-color: transparent;
+    border: 1px solid #242526;
     color: #e1e1e1;
     font-size: 14px;
     outline: none;
 }
 
 .searchInput::placeholder {
-    color: #b0b3b8;
+    color: #71767B;
 }
 
 .upgradeBanner {
