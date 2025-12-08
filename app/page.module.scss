@@ -15,13 +15,14 @@
   justify-content: center;
   font-family: var(--font-geist-sans);
   background-color: var(--background);
+  width: 100%;
 }
 
 .main {
   display: flex;
   // min-height: 100vh;
   width: 100%;
-  max-width: 1200px;
+  max-width: 1250px;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
