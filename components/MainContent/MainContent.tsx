@@ -138,13 +138,15 @@ const MainContent = () => {
                     />
                 </div>
                 <div className={styles.iconsContainer}>
-                    <FaImage className={styles.icon} />
-                    <FaSmile className={styles.icon} />
-                    <FaPoll className={styles.icon} />
-                    <FaCalendarAlt className={styles.icon} />
-                    <FaMapMarkerAlt className={styles.icon} />
-                    <FaBold className={styles.icon} />
-                    <FaItalic className={styles.icon} />
+                    <div>
+                        <FaImage className={styles.icon} />
+                        <FaSmile className={styles.icon} />
+                        <FaPoll className={styles.icon} />
+                        <FaCalendarAlt className={styles.icon} />
+                        <FaMapMarkerAlt className={styles.icon} />
+                        <FaBold className={styles.icon} />
+                        <FaItalic className={styles.icon} />
+                    </div>
                     <button
                         type="submit"
                         className={styles.postButton}
