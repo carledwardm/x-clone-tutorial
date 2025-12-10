@@ -140,6 +140,11 @@
     margin-top: 16px;
     color: #1da1f2;
     cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+
+    &:hover {
+        background-color: #1a1a1a;
+    }
 }
 
 .whoToFollow {
